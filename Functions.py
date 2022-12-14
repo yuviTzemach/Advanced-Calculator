@@ -61,6 +61,6 @@ class MathOperations:
         op1 = int(str(op1).replace('.', ''))
         sum1 = 0
         while op1 != 0:
-            sum1 += (op1 / 10)
+            sum1 += (op1 % 10)
             op1 /= 10
         return sum1
