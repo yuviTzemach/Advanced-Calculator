@@ -51,10 +51,14 @@ def erase_minus(string):
 
 def erase_space(string):
     """
-    the function remove all the spaces from the string, by replacing each space with empty char
+    the function remove all the spaces and the tabs from the string, by replacing each space and tab with empty char
     @param string: gets the string that the calculator supposed to calculate
     """
-    return string.replace(" ", "")
+    string1 = string.replace("\t", "")
+    string1 = string.replace(" ", "")
+    if string1 == "":
+        raise SyntaxError("white spaces expression is invalid")
+    return string1
 
 
 def validate_parentheses(string):
