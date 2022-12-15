@@ -5,7 +5,7 @@ def erase_minus(string):
     """
     the function remove all the duplicates minus characters from the string, if there are no minus characters, returns
     the original string
-    :param string: gets the string that the calculator supposed to calculate
+    @param string: gets the string that the calculator supposed to calculate
     returns the new string - the same string but without the duplicates minus characters
     """
     if '-' not in string:
@@ -52,7 +52,7 @@ def erase_minus(string):
 def erase_space(string):
     """
     the function remove all the spaces from the string, by replacing each space with empty char
-    :param string: gets the string that the calculator supposed to calculate
+    @param string: gets the string that the calculator supposed to calculate
     """
     return string.replace(" ", "")
 
@@ -60,7 +60,7 @@ def erase_space(string):
 def validate_parentheses(string):
     """
     the function checks if every open parentheses has a close parentheses- if not, raise error
-   :param string: gets the string that the calculator supposed to calculate
+    @param string: gets the string that the calculator supposed to calculate
     """
     # the stack hold the open parentheses to check balance
     stack_parentheses = []
@@ -80,7 +80,7 @@ def validate_parentheses(string):
 def validate_chars(string):
     """
     the function checks if the chars in the string- if not, raise error
-   :param string: gets the string that the calculator supposed to calculate
+    @param string: gets the string that the calculator supposed to calculate
     """
     valid_operations = ['+', '-', '*', '/', '^', '%', '$', '&', '@', '~', '!', '#', '(', ')']
     for char in string:
