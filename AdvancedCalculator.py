@@ -5,7 +5,7 @@ from Functions import *
 
 def main():
 
-    string = "1--3!"
+    string = input("please enter your equation:")
     print("1")
     string = erase_space(string)
     print(string)
