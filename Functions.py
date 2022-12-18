@@ -73,7 +73,7 @@ class MathOperations:
             # checking if the result of the power is a complex number - if yes, it raises an error, if no, it returns is
             raise ArithmeticError("the result is a complex number")
         MathOperations.validate_inf(res)
-        return res
+        return str(res)
 
     def modulo(op1, op2):
         """
