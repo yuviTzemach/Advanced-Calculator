@@ -234,7 +234,7 @@ class ExpressionParser:
         - the index of the first char of the left operand (named "left_operand_first_index")
         - the index of the last char of the right operand (named "right_operand_last_index")
         For example, if the expression is "3*(5+2)+10" and the operator is '*' the function will return:
-            left_operand = 3, left_operand_index = 0, right_operand = (45+2), right_operand_index = 6
+            left_operand = 3, left_operand_index = 0, right_operand = (5+2), right_operand_index = 6
         @param expr: the expression
         @param operator_index: the index of the operator the function splits by
         returns a tuple of left_operand, left_operand_first_index, left_operand_last_index, right_operand,
