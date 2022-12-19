@@ -5,20 +5,19 @@ from OperationsPriority import *
 
 def can_execute_operator(left_operand, right_operand):
     """
-    check if we can execute an operator on the given operands
-    -> means that the two of them are numbers.
-    @param left_operand - the operand that places left to the operator
-    @param right_operand - the operand that places right to the operator
-    @return true or false
+    check if we can execute an operator on the given operands -> means that the two of them are numbers.
+    @param left_operand: the operand that places left to the operator
+    @param right_operand: the operand that places right to the operator
+    returns true or false
     """
     return is_operand_number(left_operand) and is_operand_number(right_operand)
 
 
 def is_operand_number(operand):
     """
-    The function checks if the given operand is a number (whether positive or negative)\
-    @param operand - the string to check on
-    @return True if the operand represents a number
+    The function checks if the given operand is a number (whether positive or negative)
+    @param operand: the string to check on
+    returns True if the operand represents a number
             False otherwise
     """
     # ignore the floating point in order to facilitate the validation
@@ -29,6 +28,12 @@ def is_operand_number(operand):
 
 
 def calculate_expression(string):
+    """
+    The function calculate the equation by doing it in the order of the priority, first of all - 6 priority and the last
+    one is 1 priority
+    @param string: the string that represent the equation
+    returns the result of each equation
+    """
     # if our calculation is over.
     finish, string = ExpressionParser.is_calculation_finish(string)
     if finish:
@@ -117,8 +122,10 @@ def calculate_expression(string):
         if can_execute_operator(left_operand, right_operand):
             if operator == '*':
                 operator_result = MathOperations.mul(left_operand, right_operand)
+
             elif operator == '/':
                 operator_result = MathOperations.div(left_operand, right_operand)
+
             string = ExpressionParser.replace_expression_with_result\
                 (string, left_operand_first_index, right_operand_last_index, operator_result)
             return calculate_expression(string)
@@ -132,8 +139,10 @@ def calculate_expression(string):
         if can_execute_operator(left_operand, right_operand):
             if operator == '+':
                 operator_result = MathOperations.add(left_operand, right_operand)
+
             elif operator == '-':
                 operator_result = MathOperations.sub(left_operand, right_operand)
+
             string = ExpressionParser.replace_expression_with_result\
                 (string, left_operand_first_index, right_operand_last_index, operator_result)
             return calculate_expression(string)
@@ -160,9 +169,12 @@ def run_calculator(string):
 
 
 def main():
-    string = input("please enter your equation:")
     try:
+        string = input("please enter your equation:")
         print(run_calculator(string))
+    # the try take care of the chance that the input will fail because of the EOF exception
+    except EOFError as eof:
+        print(eof)
     except Exception as e:
         print(e)
 
